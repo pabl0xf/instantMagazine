@@ -78,7 +78,7 @@ class InstantMagazineApp(tk.Frame):
             destPath =   os.path.abspath(os.path.join(os.path.dirname(__file__),"..")) + "/dist/shared"
             if not os.path.exists(destPath):
                 copyFolder(self, sourcePath, destPath)
-        check_output("pdftoppm -png -scale-to 10 "+self.path.get()+" dist/viewer/"+self.destinationFolderVar.get()+"/page", shell=True) #1500
+        check_output("pdftoppm -png -scale-to  1500"+self.path.get()+" dist/viewer/"+self.destinationFolderVar.get()+"/page", shell=True) #1500
         totalPagesNumber = str(getTotalPages(self, "dist/viewer/"+self.destinationFolderVar.get())) 
         replaceTotalNumber(self, "library/viewer/template.html","var totalPages = "+totalPagesNumber+";\n") 
         openBrowserDialog(self)
